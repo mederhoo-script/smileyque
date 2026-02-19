@@ -16,13 +16,13 @@ export const brand = {
   // --- BRAND IDENTITY ---
   brandName: "Smileyque",
   tagline: "Wear Your Story",
-  subTagline: "Bespoke luxury fashion crafted for the extraordinary woman",
+  subTagline: "Bespoke luxury fashion crafted for the extraordinary woman and man",
 
   // --- CONTACT & ORDERING ---
   // WhatsApp number — international format, no + or spaces
   whatsappNumber: "2348034295030",
   phone: "+234 803 429 5030",
-  location: "Lagos, Nigeria",
+  location: "Ibadan, Nigeria",
   email: "hello@smileyque.com",
 
   // --- HERO IMAGES ---

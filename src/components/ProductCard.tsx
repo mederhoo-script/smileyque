@@ -73,7 +73,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
             ) : (
               <>
                 <ShoppingBag size={12} />
-                Add to Cart
+                Add
               </>
             )}
           </button>

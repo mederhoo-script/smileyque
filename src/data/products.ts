@@ -47,7 +47,7 @@ export const products: Product[] = [
     price: "₦220,000",
     category: "Gowns",
     image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80",
-    featured: false,
+    featured: true,
   },
 
   // --- SENATOR WEAR ---
@@ -76,7 +76,7 @@ export const products: Product[] = [
     price: "₦78,000",
     category: "Senator Wear",
     image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&q=80",
-    featured: false,
+    featured: true,
   },
 
   // --- CASUALS ---
@@ -96,7 +96,7 @@ export const products: Product[] = [
     price: "₦62,000",
     category: "Casuals",
     image: "https://images.unsplash.com/photo-1614251056798-0a63eda2bb25?w=600&q=80",
-    featured: false,
+    featured: true,
   },
   {
     id: "casual-003",
@@ -105,7 +105,7 @@ export const products: Product[] = [
     price: "₦58,000",
     category: "Casuals",
     image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80",
-    featured: false,
+    featured: true,
   },
 
   // --- BRIDAL ---
@@ -116,7 +116,7 @@ export const products: Product[] = [
     price: "From ₦500,000",
     category: "Bridal",
     image: "https://images.unsplash.com/photo-1594552072238-b8a33785b6cd?w=600&q=80",
-    featured: false,
+    featured: true,
   },
   {
     id: "bridal-002",
@@ -125,7 +125,7 @@ export const products: Product[] = [
     price: "From ₦380,000",
     category: "Bridal",
     image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80",
-    featured: false,
+    featured: true,
   },
   {
     id: "bridal-003",
@@ -134,7 +134,7 @@ export const products: Product[] = [
     price: "From ₦165,000",
     category: "Bridal",
     image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80",
-    featured: false,
+    featured: true,
   },
 ];
 
