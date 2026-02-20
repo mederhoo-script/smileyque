@@ -21,9 +21,9 @@ export const brand = {
 
   // --- CONTACT & ORDERING ---
   // WhatsApp number — international format, no + or spaces
-  whatsappNumber: "2348034295030",
-  phone: "+234 803 429 5030",
-  location: "Ibadan, Nigeria",
+  whatsappNumber: "2348145968490",
+  phone: "+234 814 596 8490",
+  location: "Bodlink-MTN Partner, Henry T Bus Stop, Odo ona elewe, 25 Adifala St, lbadanLayi Ayanniyi Street, opposite niyi ishola & co, off MKO Abiola Way, New Gra, Ibadan 200273, Oyo, Nigeria.",
   email: "hello@smileyque.com",
 
   // --- HERO IMAGES ---
