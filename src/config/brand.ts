@@ -15,6 +15,7 @@
 export const brand = {
   // --- BRAND IDENTITY ---
   brandName: "Smileyque",
+  logo: "/images/smileyque_logo.png",
   tagline: "Wear Your Story",
   subTagline: "Bespoke luxury fashion crafted for the extraordinary woman and man",
 

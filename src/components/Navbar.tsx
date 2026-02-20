@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ShoppingBag, Menu, X } from "lucide-react";
+import { ShoppingBag, Menu, X, Search } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { brand } from "@/config/brand";
 import { cn } from "@/lib/utils";
+
+interface NavbarProps {
+  onSearchOpen?: () => void;
+}
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -13,7 +17,7 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onSearchOpen }: NavbarProps) {
   const { totalItems, openCart } = useCart();
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
@@ -49,11 +53,16 @@ export default function Navbar() {
           <Link
             to="/"
             className={cn(
-              "font-playfair text-2xl md:text-3xl font-semibold tracking-wider transition-colors duration-300",
+              "flex items-center gap-2 font-playfair text-2xl md:text-3xl font-semibold tracking-wider transition-colors duration-300",
               isTransparent ? "text-background" : "text-foreground"
             )}
           >
-            {brand.brandName}
+            <img
+              src={brand.logo}
+              alt={brand.brandName}
+              className="h-8 md:h-10 w-auto transition-all duration-300"
+            />
+            <span>{brand.brandName}</span>
           </Link>
 
           {/* Desktop Nav Links */}
@@ -79,8 +88,22 @@ export default function Navbar() {
             })}
           </ul>
 
-          {/* Right: Cart + Mobile Menu */}
-          <div className="flex items-center gap-4">
+          {/* Right: Search + Cart + Mobile Menu */}
+          <div className="flex items-center gap-2">
+            {/* Search icon */}
+            <button
+              onClick={onSearchOpen}
+              aria-label="Open search"
+              className={cn(
+                "relative p-2 transition-colors duration-300 rounded-sm hover:bg-white/10",
+                isTransparent
+                  ? "text-background hover:text-background/70"
+                  : "text-foreground hover:text-primary"
+              )}
+            >
+              <Search size={20} />
+            </button>
+
             {/* Cart icon */}
             <button
               onClick={openCart}
@@ -113,31 +136,47 @@ export default function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-brand-black flex flex-col items-center justify-center gap-10 md:hidden">
-          <Link
-            to="/"
-            className="font-playfair text-3xl text-background tracking-widest"
-            onClick={() => setMenuOpen(false)}
-          >
-            {brand.brandName}
-          </Link>
-          <ul className="flex flex-col items-center gap-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  to={link.href}
-                  className="font-inter text-sm tracking-[0.3em] uppercase text-background/80 hover:text-primary transition-colors duration-300"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/* Mobile Menu — smooth slide-in */}
+      <div
+        className={cn(
+          "fixed inset-0 z-40 bg-brand-black flex flex-col items-center justify-center gap-10 md:hidden transition-all duration-400",
+          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        )}
+      >
+        <Link
+          to="/"
+          className="flex flex-col items-center gap-4 font-playfair text-3xl text-background tracking-widest"
+          onClick={() => setMenuOpen(false)}
+        >
+          <img
+            src={brand.logo}
+            alt={brand.brandName}
+            className="h-16 w-auto"
+          />
+          <span>{brand.brandName}</span>
+        </Link>
+        <ul className="flex flex-col items-center gap-8">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                to={link.href}
+                className="font-inter text-sm tracking-[0.3em] uppercase text-background/80 hover:text-primary transition-colors duration-300"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        {/* Search in mobile menu */}
+        <button
+          onClick={() => { setMenuOpen(false); onSearchOpen?.(); }}
+          className="flex items-center gap-2 font-inter text-sm tracking-[0.3em] uppercase text-background/80 hover:text-primary transition-colors duration-300"
+        >
+          <Search size={16} />
+          Search
+        </button>
+      </div>
     </>
   );
 }
